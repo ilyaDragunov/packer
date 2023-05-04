@@ -1,0 +1,249 @@
+user@ubuntu-vm:~$ packer build centos.json
+"centos.json": stat centos.json: no such file or directory
+user@ubuntu-vm:~$ cd laba/
+user@ubuntu-vm:~/laba$ cd packer/
+user@ubuntu-vm:~/laba/packer$ packer build centos.json
+virtualbox-iso.{{user `image_name`}}: output will be in this color.
+
+==> virtualbox-iso.{{user `image_name`}}: Retrieving Guest additions
+==> virtualbox-iso.{{user `image_name`}}: Trying /usr/share/virtualbox/VBoxGuestAdditions.iso
+==> virtualbox-iso.{{user `image_name`}}: Trying /usr/share/virtualbox/VBoxGuestAdditions.iso
+==> virtualbox-iso.{{user `image_name`}}: /usr/share/virtualbox/VBoxGuestAdditions.iso => /usr/share/virtualbox/VBoxGuestAdditions.iso
+==> virtualbox-iso.{{user `image_name`}}: Retrieving ISO
+==> virtualbox-iso.{{user `image_name`}}: Trying https://ftp.nsc.ru/pub/centos/8-stream/isos/x86_64/CentOS-Stream-8-20230427.2-x86_64-boot.iso
+==> virtualbox-iso.{{user `image_name`}}: Trying https://ftp.nsc.ru/pub/centos/8-stream/isos/x86_64/CentOS-Stream-8-20230427.2-x86_64-boot.iso?checksum=sha256%3Ace                                                                          31ac97e2f5a0a2930adaddd86c992eee59e5a6a2ba2b8367938efe291a6ff6
+==> virtualbox-iso.{{user `image_name`}}: Download failed bad response code: 404
+==> virtualbox-iso.{{user `image_name`}}: error downloading ISO: [bad response code: 404]
+Build 'virtualbox-iso.{{user `image_name`}}' errored after 974 milliseconds 955 microseconds: error downloading ISO: [bad response code: 404]
+
+==> Wait completed after 974 milliseconds 990 microseconds
+
+==> Some builds didn't complete successfully and had errors:
+--> virtualbox-iso.{{user `image_name`}}: error downloading ISO: [bad response code: 404]
+
+==> Builds finished but no artifacts were created.
+user@ubuntu-vm:~/laba/packer$ mc
+
+user@ubuntu-vm:~/laba/packer$ packer build centos.json
+virtualbox-iso.{{user `image_name`}}: output will be in this color.
+
+==> virtualbox-iso.{{user `image_name`}}: Retrieving Guest additions
+==> virtualbox-iso.{{user `image_name`}}: Trying /usr/share/virtualbox/VBoxGuestAdditions.iso
+==> virtualbox-iso.{{user `image_name`}}: Trying /usr/share/virtualbox/VBoxGuestAdditions.iso
+==> virtualbox-iso.{{user `image_name`}}: /usr/share/virtualbox/VBoxGuestAdditions.iso => /usr/share/virtualbox/VBoxGuestAdditions.iso
+==> virtualbox-iso.{{user `image_name`}}: Retrieving ISO
+==> virtualbox-iso.{{user `image_name`}}: Trying http://mirror.netzwerge.de/centos/8-stream/isos/x86_64/CentOS-Stream-8-20230429.0-x86_64-boot.iso
+==> virtualbox-iso.{{user `image_name`}}: Trying http://mirror.netzwerge.de/centos/8-stream/isos/x86_64/CentOS-Stream-8-20230429.0-x86_64-boot.iso?checksum=sha256%                                                                          3A017e6f8924248c204fe649403e0fe6896302a6b3c6b5a69968889758d805df26
+    virtualbox-iso.{{user `image_name`}}: CentOS-Stream-8-20230429.0-x86_64-boot.iso 911.00 MiB / 911.00 MiB [================================] 100.00% 4m28s
+==> virtualbox-iso.{{user `image_name`}}: http://mirror.netzwerge.de/centos/8-stream/isos/x86_64/CentOS-Stream-8-20230429.0-x86_64-boot.iso?checksum=sha256%3A017e6                                                                          f8924248c204fe649403e0fe6896302a6b3c6b5a69968889758d805df26 => /home/user/.cache/packer/28d049c3337afd02ad88a6f356e94d633a2bb53a.iso
+==> virtualbox-iso.{{user `image_name`}}: Starting HTTP server on port 8891
+==> virtualbox-iso.{{user `image_name`}}: Creating virtual machine...
+==> virtualbox-iso.{{user `image_name`}}: Creating hard drive builds/packer-centos-vm.vdi with size 10240 MiB...
+==> virtualbox-iso.{{user `image_name`}}: Mounting ISOs...
+    virtualbox-iso.{{user `image_name`}}: Mounting boot ISO...
+==> virtualbox-iso.{{user `image_name`}}: Creating forwarded port mapping for communicator (SSH, WinRM, etc) (host port 4064)
+==> virtualbox-iso.{{user `image_name`}}: Executing custom VBoxManage commands...
+    virtualbox-iso.{{user `image_name`}}: Executing: modifyvm packer-centos-vm --memory 2048
+    virtualbox-iso.{{user `image_name`}}: Executing: modifyvm packer-centos-vm --cpus 2
+    virtualbox-iso.{{user `image_name`}}: Executing: modifyvm packer-centos-vm --nat-localhostreachable1 on
+==> virtualbox-iso.{{user `image_name`}}: Starting the virtual machine...
+    virtualbox-iso.{{user `image_name`}}: The VM will be run headless, without a GUI. If you want to
+    virtualbox-iso.{{user `image_name`}}: view the screen of the VM, connect via VRDP without a password to
+    virtualbox-iso.{{user `image_name`}}: rdp://127.0.0.1:5951
+==> virtualbox-iso.{{user `image_name`}}: Waiting 10s for boot...
+==> virtualbox-iso.{{user `image_name`}}: Typing the boot command...
+==> virtualbox-iso.{{user `image_name`}}: Using SSH communicator to connect: 127.0.0.1
+==> virtualbox-iso.{{user `image_name`}}: Waiting for SSH to become available...
+==> virtualbox-iso.{{user `image_name`}}: Connected to SSH!
+==> virtualbox-iso.{{user `image_name`}}: Uploading VirtualBox version info (7.0.8)
+==> virtualbox-iso.{{user `image_name`}}: Uploading VirtualBox guest additions ISO...
+==> virtualbox-iso.{{user `image_name`}}: Pausing 20s before the next provisioner...
+==> virtualbox-iso.{{user `image_name`}}: Provisioning with shell script: scripts/stage-1-kernel-update.sh
+    virtualbox-iso.{{user `image_name`}}:
+    virtualbox-iso.{{user `image_name`}}: We trust you have received the usual lecture from the local System
+    virtualbox-iso.{{user `image_name`}}: Administrator. It usually boils down to these three things:
+    virtualbox-iso.{{user `image_name`}}:
+    virtualbox-iso.{{user `image_name`}}:     #1) Respect the privacy of others.
+    virtualbox-iso.{{user `image_name`}}:     #2) Think before you type.
+    virtualbox-iso.{{user `image_name`}}:     #3) With great power comes great responsibility.
+    virtualbox-iso.{{user `image_name`}}:
+    virtualbox-iso.{{user `image_name`}}: CentOS Stream 8 - AppStream                     1.2 MB/s |  29 MB     00:23
+    virtualbox-iso.{{user `image_name`}}: CentOS Stream 8 - BaseOS                        4.4 MB/s |  33 MB     00:07
+    virtualbox-iso.{{user `image_name`}}: CentOS Stream 8 - Extras                         58 kB/s |  18 kB     00:00
+    virtualbox-iso.{{user `image_name`}}: CentOS Stream 8 - Extras common packages         22 kB/s | 6.4 kB     00:00
+    virtualbox-iso.{{user `image_name`}}: elrepo-release-8.el8.elrepo.noarch.rpm           15 kB/s |  13 kB     00:00
+    virtualbox-iso.{{user `image_name`}}: Dependencies resolved.
+    virtualbox-iso.{{user `image_name`}}: ================================================================================
+    virtualbox-iso.{{user `image_name`}}:  Package             Arch        Version                Repository         Size
+    virtualbox-iso.{{user `image_name`}}: ================================================================================
+    virtualbox-iso.{{user `image_name`}}: Installing:
+    virtualbox-iso.{{user `image_name`}}:  elrepo-release      noarch      8.3-1.el8.elrepo       @commandline       13 k
+    virtualbox-iso.{{user `image_name`}}:
+    virtualbox-iso.{{user `image_name`}}: Transaction Summary
+    virtualbox-iso.{{user `image_name`}}: ================================================================================
+    virtualbox-iso.{{user `image_name`}}: Install  1 Package
+    virtualbox-iso.{{user `image_name`}}:
+    virtualbox-iso.{{user `image_name`}}: Total size: 13 k
+    virtualbox-iso.{{user `image_name`}}: Installed size: 5.0 k
+    virtualbox-iso.{{user `image_name`}}: Downloading Packages:
+    virtualbox-iso.{{user `image_name`}}: Running transaction check
+    virtualbox-iso.{{user `image_name`}}: Transaction check succeeded.
+    virtualbox-iso.{{user `image_name`}}: Running transaction test
+    virtualbox-iso.{{user `image_name`}}: Transaction test succeeded.
+    virtualbox-iso.{{user `image_name`}}: Running transaction
+    virtualbox-iso.{{user `image_name`}}:   Preparing        :                                                        1/1
+    virtualbox-iso.{{user `image_name`}}:   Installing       : elrepo-release-8.3-1.el8.elrepo.noarch                 1/1
+    virtualbox-iso.{{user `image_name`}}:   Verifying        : elrepo-release-8.3-1.el8.elrepo.noarch                 1/1
+    virtualbox-iso.{{user `image_name`}}:
+    virtualbox-iso.{{user `image_name`}}: Installed:
+    virtualbox-iso.{{user `image_name`}}:   elrepo-release-8.3-1.el8.elrepo.noarch
+    virtualbox-iso.{{user `image_name`}}:
+    virtualbox-iso.{{user `image_name`}}: Complete!
+    virtualbox-iso.{{user `image_name`}}: ELRepo.org Community Enterprise Linux Repositor 306 kB/s | 248 kB     00:00
+    virtualbox-iso.{{user `image_name`}}: ELRepo.org Community Enterprise Linux Kernel Re 1.6 MB/s | 2.1 MB     00:01
+    virtualbox-iso.{{user `image_name`}}: Last metadata expiration check: 0:00:01 ago on Wed 03 May 2023 11:51:28 AM EDT.
+    virtualbox-iso.{{user `image_name`}}: Dependencies resolved.
+    virtualbox-iso.{{user `image_name`}}: ================================================================================
+    virtualbox-iso.{{user `image_name`}}:  Package              Arch      Version                  Repository        Size
+    virtualbox-iso.{{user `image_name`}}: ================================================================================
+    virtualbox-iso.{{user `image_name`}}: Installing:
+    virtualbox-iso.{{user `image_name`}}:  kernel-ml            x86_64    6.3.1-1.el8.elrepo       elrepo-kernel    110 k
+    virtualbox-iso.{{user `image_name`}}: Installing dependencies:
+    virtualbox-iso.{{user `image_name`}}:  kernel-ml-core       x86_64    6.3.1-1.el8.elrepo       elrepo-kernel     56 M
+    virtualbox-iso.{{user `image_name`}}:  kernel-ml-modules    x86_64    6.3.1-1.el8.elrepo       elrepo-kernel     58 M
+    virtualbox-iso.{{user `image_name`}}:
+    virtualbox-iso.{{user `image_name`}}: Transaction Summary
+    virtualbox-iso.{{user `image_name`}}: ================================================================================
+    virtualbox-iso.{{user `image_name`}}: Install  3 Packages
+    virtualbox-iso.{{user `image_name`}}:
+    virtualbox-iso.{{user `image_name`}}: Total download size: 114 M
+    virtualbox-iso.{{user `image_name`}}: Installed size: 156 M
+    virtualbox-iso.{{user `image_name`}}: Downloading Packages:
+    virtualbox-iso.{{user `image_name`}}: (1/3): kernel-ml-6.3.1-1.el8.elrepo.x86_64.rpm  361 kB/s | 110 kB     00:00
+    virtualbox-iso.{{user `image_name`}}: (2/3): kernel-ml-core-6.3.1-1.el8.elrepo.x86_64 1.9 MB/s |  56 MB     00:29
+    virtualbox-iso.{{user `image_name`}}: (3/3): kernel-ml-modules-6.3.1-1.el8.elrepo.x86 1.8 MB/s |  58 MB     00:31
+    virtualbox-iso.{{user `image_name`}}: --------------------------------------------------------------------------------
+    virtualbox-iso.{{user `image_name`}}: Total                                           3.6 MB/s | 114 MB     00:31
+    virtualbox-iso.{{user `image_name`}}: ELRepo.org Community Enterprise Linux Kernel Re 1.6 MB/s | 1.7 kB     00:00
+    virtualbox-iso.{{user `image_name`}}: Importing GPG key 0xBAADAE52:
+    virtualbox-iso.{{user `image_name`}}:  Userid     : "elrepo.org (RPM Signing Key for elrepo.org) <secure@elrepo.org>"
+    virtualbox-iso.{{user `image_name`}}:  Fingerprint: 96C0 104F 6315 4731 1E0B B1AE 309B C305 BAAD AE52
+    virtualbox-iso.{{user `image_name`}}:  From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-elrepo.org
+    virtualbox-iso.{{user `image_name`}}: Key imported successfully
+    virtualbox-iso.{{user `image_name`}}: Running transaction check
+    virtualbox-iso.{{user `image_name`}}: Transaction check succeeded.
+    virtualbox-iso.{{user `image_name`}}: Running transaction test
+    virtualbox-iso.{{user `image_name`}}: Transaction test succeeded.
+    virtualbox-iso.{{user `image_name`}}: Running transaction
+    virtualbox-iso.{{user `image_name`}}:   Preparing        :                                                        1/1
+    virtualbox-iso.{{user `image_name`}}:   Installing       : kernel-ml-core-6.3.1-1.el8.elrepo.x86_64               1/3
+    virtualbox-iso.{{user `image_name`}}:   Running scriptlet: kernel-ml-core-6.3.1-1.el8.elrepo.x86_64               1/3
+    virtualbox-iso.{{user `image_name`}}:   Installing       : kernel-ml-modules-6.3.1-1.el8.elrepo.x86_64            2/3
+    virtualbox-iso.{{user `image_name`}}:   Running scriptlet: kernel-ml-modules-6.3.1-1.el8.elrepo.x86_64            2/3
+    virtualbox-iso.{{user `image_name`}}:   Installing       : kernel-ml-6.3.1-1.el8.elrepo.x86_64                    3/3
+    virtualbox-iso.{{user `image_name`}}:   Running scriptlet: kernel-ml-core-6.3.1-1.el8.elrepo.x86_64               3/3
+    virtualbox-iso.{{user `image_name`}}:   Running scriptlet: kernel-ml-6.3.1-1.el8.elrepo.x86_64                    3/3
+    virtualbox-iso.{{user `image_name`}}:   Verifying        : kernel-ml-6.3.1-1.el8.elrepo.x86_64                    1/3
+    virtualbox-iso.{{user `image_name`}}:   Verifying        : kernel-ml-core-6.3.1-1.el8.elrepo.x86_64               2/3
+    virtualbox-iso.{{user `image_name`}}:   Verifying        : kernel-ml-modules-6.3.1-1.el8.elrepo.x86_64            3/3
+    virtualbox-iso.{{user `image_name`}}:
+    virtualbox-iso.{{user `image_name`}}: Installed:
+    virtualbox-iso.{{user `image_name`}}:   kernel-ml-6.3.1-1.el8.elrepo.x86_64
+    virtualbox-iso.{{user `image_name`}}:   kernel-ml-core-6.3.1-1.el8.elrepo.x86_64
+    virtualbox-iso.{{user `image_name`}}:   kernel-ml-modules-6.3.1-1.el8.elrepo.x86_64
+    virtualbox-iso.{{user `image_name`}}:
+    virtualbox-iso.{{user `image_name`}}: Complete!
+    virtualbox-iso.{{user `image_name`}}: Generating grub configuration file ...
+    virtualbox-iso.{{user `image_name`}}: done
+    virtualbox-iso.{{user `image_name`}}: Grub update done.
+==> virtualbox-iso.{{user `image_name`}}: Provisioning with shell script: scripts/stage-2-clean.sh
+    virtualbox-iso.{{user `image_name`}}: [sudo] password for vagrant: Last metadata expiration check: 0:02:35 ago on Wed 03 May 2023 11:51:26 AM EDT.
+    virtualbox-iso.{{user `image_name`}}: Dependencies resolved.
+    virtualbox-iso.{{user `image_name`}}: Nothing to do.
+    virtualbox-iso.{{user `image_name`}}: Complete!
+    virtualbox-iso.{{user `image_name`}}: 39 files removed
+==> virtualbox-iso.{{user `image_name`}}: Gracefully halting virtual machine...
+    virtualbox-iso.{{user `image_name`}}: [sudo] password for vagrant:
+    virtualbox-iso.{{user `image_name`}}: sudo: timed out reading password
+==> virtualbox-iso.{{user `image_name`}}: Preparing to export machine...
+    virtualbox-iso.{{user `image_name`}}: Deleting forwarded port mapping for the communicator (SSH, WinRM, etc) (host port 4064)
+==> virtualbox-iso.{{user `image_name`}}: Exporting virtual machine...
+    virtualbox-iso.{{user `image_name`}}: Executing: export packer-centos-vm --output builds/packer-centos-vm.ovf --manifest --vsys 0 --description CentOS Stream 8                                                                           with kernel 5.x --version 8
+==> virtualbox-iso.{{user `image_name`}}: Cleaning up floppy disk...
+==> virtualbox-iso.{{user `image_name`}}: Deregistering and deleting VM...
+==> virtualbox-iso.{{user `image_name`}}: Running post-processor: vagrant
+==> virtualbox-iso.{{user `image_name`}} (vagrant): Creating a dummy Vagrant box to ensure the host system can create one correctly
+==> virtualbox-iso.{{user `image_name`}} (vagrant): Creating Vagrant box for 'virtualbox' provider
+    virtualbox-iso.{{user `image_name`}} (vagrant): Copying from artifact: builds/packer-centos-vm-disk001.vmdk
+    virtualbox-iso.{{user `image_name`}} (vagrant): Copying from artifact: builds/packer-centos-vm.mf
+    virtualbox-iso.{{user `image_name`}} (vagrant): Copying from artifact: builds/packer-centos-vm.ovf
+    virtualbox-iso.{{user `image_name`}} (vagrant): Renaming the OVF to box.ovf...
+    virtualbox-iso.{{user `image_name`}} (vagrant): Compressing: Vagrantfile
+    virtualbox-iso.{{user `image_name`}} (vagrant): Compressing: box.ovf
+    virtualbox-iso.{{user `image_name`}} (vagrant): Compressing: metadata.json
+    virtualbox-iso.{{user `image_name`}} (vagrant): Compressing: packer-centos-vm-disk001.vmdk
+    virtualbox-iso.{{user `image_name`}} (vagrant): Compressing: packer-centos-vm.mf
+Build 'virtualbox-iso.{{user `image_name`}}' finished after 30 minutes 49 seconds.
+
+==> Wait completed after 30 minutes 49 seconds
+
+==> Builds finished. The artifacts of successful builds are:
+--> virtualbox-iso.{{user `image_name`}}: 'virtualbox' provider box: centos-8-kernel-5-x86_64-Minimal.box
+user@ubuntu-vm:~/laba/packer$ mc
+
+user@ubuntu-vm:~/laba/packer$ vagrant box add centos8-kernel5 centos-8-kernel-5-x86_64-Minimal.box
+==> box: Box file was not detected as metadata. Adding it directly...
+==> box: Adding box 'centos8-kernel5' (v0) for provider:
+    box: Unpacking necessary files from: file:///home/user/laba/packer/centos-8-kernel-5-x86_64-Minimal.box
+==> box: Successfully added box 'centos8-kernel5' (v0) for 'virtualbox'!
+user@ubuntu-vm:~/laba/packer$
+user@ubuntu-vm:~/laba/packer$
+user@ubuntu-vm:~/laba/packer$
+user@ubuntu-vm:~/laba/packer$ vagrant box list
+centos/8        (virtualbox, 2011.0)
+centos8-kernel5 (virtualbox, 0)
+user@ubuntu-vm:~/laba/packer$
+user@ubuntu-vm:~/laba/packer$
+user@ubuntu-vm:~/laba/packer$
+
+user@ubuntu-vm:~/laba/packer$ export VAGRANT_SERVER_URL=https://app.vagrantup.com/
+user@ubuntu-vm:~/laba/packer$ vagrant cloud auth login --token skGG7oIOj22rXA.atlasv1.AciHcB8yflE7dqN0Pr2q0Wrwr89rAZqRLXYC2dT53J8FLV78DxT0wdb6Zk8k2uq9DeA
+The token was successfully saved.
+You are already logged in.
+user@ubuntu-vm:~/laba/packer$ vagrant cloud auth login
+You are already logged in.
+user@ubuntu-vm:~/laba/packer$ vagrant cloud publish --release did04052023/centos8-kernel5 1.0 virtualbox centos-8-kernel-5-x86_64-Minimal.box
+You are about to publish a box on Vagrant Cloud with the following options:
+did04052023/centos8-kernel5:   (v1.0) for provider 'virtualbox'
+Automatic Release:     true
+Do you wish to continue? [y/N]y
+Failed to create box did04052023/centos8-kernel5
+Vagrant Cloud request failed - Resource not found!
+user@ubuntu-vm:~/laba/packer$ vagrant cloud publish --release <user_account>/centos8-kernel5 1.0 virtualbox centos-8-kernel-5-x86_64-Minimal.box
+-bash: user_account: No such file or directory
+user@ubuntu-vm:~/laba/packer$
+user@ubuntu-vm:~/laba/packer$
+user@ubuntu-vm:~/laba/packer$ vagrant cloud publish --release mozg85/centos8-kernel5 1.0 virtualbox centos-8-kernel-5-x86_64-Minimal.box
+You are about to publish a box on Vagrant Cloud with the following options:
+mozg85/centos8-kernel5:   (v1.0) for provider 'virtualbox'
+Automatic Release:     true
+Do you wish to continue? [y/N]y
+Saving box information...
+Uploading provider with file /home/user/laba/packer/centos-8-kernel-5-x86_64-Minimal.box
+Releasing box...
+Complete! Published mozg85/centos8-kernel5
+Box:              mozg85/centos8-kernel5
+Description:
+Private:          yes
+Created:          2023-05-04T17:44:41.627+10:00
+Updated:          2023-05-04T17:44:41.627+10:00
+Current Version:  N/A
+Versions:         1.0
+Downloads:        0
+user@ubuntu-vm:~/laba/packer$
+user@ubuntu-vm:~/laba/packer$
+user@ubuntu-vm:~/laba/packer$
+
+
+
+
